@@ -1,0 +1,159 @@
+/* reset css */ 
+* {
+    min-width: 0;
+    font: inherit;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+body {
+    margin: 0;
+    min-height: 100dvh;
+}
+h1,
+h2,
+h3 {
+    text-wrap: balance;
+}
+
+p {
+    text-wrap: pretty;
+}
+
+/* styles */
+body {
+    background-color: #da3c90;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    justify-content: flex-start; /* Cambiado de center a flex-start */
+    align-items: center;
+    height: 100vh;
+    padding-top: 8rem; /* Aumentado para bajar el contenido */
+}
+.container-letter {
+    position: relative;
+    margin-top: 3rem; /* Ajustado para bajar aún más la carta */
+}
+
+.cover {
+    position: absolute;
+    border-left: 200px solid transparent;
+    border-right: 200px solid transparent;
+    border-top: 100px solid #f687c0;
+    border-bottom: 100px solid transparent;
+    transition: transform 2.75s;
+    transform-origin: top;
+}
+
+.paper {
+    position: absolute;
+    padding: 4rem; /* Ajustado para más espacio */
+    line-height: 1.3rem;
+    right: 8px;
+    z-index: -1;
+    background: white;
+    width: 380px;
+    height: 400px; /* Aumentado para dar más espacio al texto */
+    overflow: hidden; /* Oculta el contenido que sobresale */
+    transition: all .75s;
+    transform: translateY(0); /* Para animar el desplazamiento */
+    opacity: 0; /* Oculta el contenido inicialmente */
+    font-size: 15px;
+}
+
+.open-paper {
+    transform: translateY(-150px); /* Mueve el contenido hacia arriba al abrir */
+    opacity: 1; /* Muestra el contenido al abrir */
+    animation: openPaper .5s forwards;
+}
+
+@keyframes openPaper {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -120px;
+    }
+}
+
+.letter {
+    border-left: 200px solid #ff98cd;
+    border-right: 200px solid #ff98cd;
+    border-top: 100px solid transparent;
+    border-bottom: 100px solid #f687c0;
+}
+
+.options {
+    display: flex;
+    gap: 5rem;
+}
+
+.options button {
+    color: #f04ea1;
+    font-weight: 600;
+    border-radius: 3px;
+    background: #f8a6d0;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ac4c7e;
+    cursor: pointer;
+}
+
+.options button:hover {
+    background: #d87aab;
+    color: white;
+}
+
+.open-cover {
+    transform: rotateX(180deg);
+}
+
+.close-paper {
+    animation: closePaper .5s forwards;
+    transform: translateY(0); /* Regresa a la posición original */
+    opacity: 0; /* Oculta el contenido al cerrar */
+}
+
+@keyframes closePaper {
+    0% {
+        top: -120px;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+.heart {
+    display: none;
+    position: absolute;
+    top: 25%;
+    left: 41.8%;
+    margin: auto;
+    font-size: 3rem;
+    color: #fe3334;  
+    animation: crecer 3s forwards ;
+}
+
+@keyframes crecer {
+    0% {
+        scale: 1;
+        opacity: 1;
+    }
+    100% {
+        scale: 3;
+        opacity: 0;
+    }
+}
